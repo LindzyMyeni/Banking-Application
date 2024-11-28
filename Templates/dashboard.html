@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url("https://www.cleanertimes.com/wp-content/uploads/2024/04/iStock-1397011551.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #01352c; /* fourth-color */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar h1 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar nav ul li {
+            margin: 0 15px;
+        }
+
+        .navbar nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar nav ul li a:hover {
+            background-color: #3a4c64; /* Slightly lighter blue on hover */
+            border-radius: 5px;
+        }
+
+        /* Main Content Styling */
+        main {
+            padding: 30px 20px;
+            min-height: 80vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #2d3e50; /* Dark blue for headings */
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Form Styling */
+        form {
+            background-color: rgba(255, 255, 255, 0.6); /* White background with 80% opacity */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for contrast */
+            margin-top: 20px;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        form label {
+            font-size: 1.1rem;
+            color: #333;
+            display: block;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent input fields */
+        }
+
+        form button {
+            background-color: #01352c; /* fourth-color */
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #61b390; /* third-color */
+        }
+
+        /* Actions Button */
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .actions .btn {
+            background-color: #01352c; /* fourth-color */
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .actions .btn:hover {
+            background-color: #61b390; /* third-color */
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #01352c; /* fourth-color */
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar h1 {
+                font-size: 1.5rem;
+            }
+
+            .navbar nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar nav ul li {
+                margin: 10px 0;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Banking App</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('homepage') }}">Home</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('transaction_history') }}">Transactions</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Welcome to your Dashboard</h2>
+            <p>Account Number: {{ account_number }}</p>
+            <p>Balance: {{ balance }}</p>
+
+            <div class="form-container">
+                <h3>Deposit</h3>
+                <form action="{{ url_for('deposit') }}" method="POST">
+                    <div>
+                        <label for="amount">Amount:</label>
+                        <input type="number" name="amount" id="amount" placeholder="Amount" required><br>
+                    </div>
+                    <button type="submit">Deposit</button>
+                </form>
+
+                <h3>Withdraw</h3>
+                <form action="{{ url_for('withdraw') }}" method="POST">
+                    <div>
+                        <label for="withdraw-amount">Amount:</label>
+                        <input type="number" name="amount" id="withdraw-amount" placeholder="Amount" required><br>
+                    </div>
+                    <button type="submit">Withdraw</button>
+                </form>
+
+                <h3>Transfer</h3>
+                <form action="{{ url_for('transfer') }}" method="POST">
+                    <div>
+                        <label for="recipient">Recipient Account:</label>
+                        <input type="text" name="recipient" id="recipient" placeholder="Recipient Account" required><br>
+                    </div>
+                    <div>
+                        <label for="transfer-amount">Amount:</label>
+                        <input type="number" name="amount" id="transfer-amount" placeholder="Amount" required><br>
+                    </div>
+                    <button type="submit">Transfer</button>
+                </form>
+            </div>
+
+
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Banking App. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

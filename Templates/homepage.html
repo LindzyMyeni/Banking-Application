@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h2>Welcome to Our Banking App</h2>
+    <p>Manage your finances securely and efficiently with our online banking services.</p>
+    <div class="actions">
+        <a href="{{ url_for('login') }}" class="btn">Login</a>
+        <a href="{{ url_for('create_account') }}" class="btn">Create Account</a>
+    </div>
+{% endblock %}

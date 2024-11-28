@@ -1,0 +1,159 @@
+{
+    "00000001": {
+        "name": "Lindo",
+        "surname": "myeni",
+        "username": "lindo",
+        "phone": "1234567890",
+        "id_number": "1234567890123",
+        "password": "scrypt:32768:8:1$HzIt7puFkbaQjLRE$1afab839bb062605a076ad89ed388d108c375bcb19c1a5cc9ec81746069e8d1d32f6a3154346adc6674f559c88e9dceeea7470ee3f7f0bec8e371c3f93fcb491",
+        "balance": 10874.0,
+        "transactions": [
+            {
+                "type": "deposit",
+                "amount": 100.0,
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "withdrawal",
+                "amount": -50.0,
+                "to": null,
+                "from": "00000001"
+            },
+            {
+                "type": "transfer_in",
+                "amount": 100.0,
+                "to": "00000001",
+                "from": "53351908"
+            },
+            {
+                "type": "deposit",
+                "amount": 10000.0,
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "withdrawal",
+                "amount": -500.0,
+                "to": null,
+                "from": "00000001"
+            },
+            {
+                "type": "transfer_out",
+                "amount": -1000.0,
+                "to": "53351908",
+                "from": "00000001"
+            },
+            {
+                "type": "deposit",
+                "amount": 10.0,
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "deposit",
+                "amount": 20.0,
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "deposit",
+                "amount": 234.0,
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "deposit",
+                "amount": 290.0
+            },
+            {
+                "type": "deposit",
+                "amount": 200.0
+            },
+            {
+                "type": "deposit",
+                "amount": 1000.0
+            },
+            {
+                "type": "deposit",
+                "amount": 10.0
+            },
+            {
+                "type": "deposit",
+                "amount": 100.0,
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "deposit",
+                "amount": 100.0,
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "deposit",
+                "amount": 100.0,
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "deposit",
+                "amount": 10.0,
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "deposit",
+                "amount": "R100.00",
+                "to": "00000001",
+                "from": null
+            },
+            {
+                "type": "Deposit",
+                "amount": "R50.00",
+                "to": "00000001",
+                "from": null,
+                "date": "2024-11-28 02:16:01"
+            }
+        ]
+    },
+    "53351908": {
+        "name": "sphe",
+        "surname": "myeni",
+        "username": "lindi",
+        "phone": "2468101010",
+        "id_number": "1010101010101",
+        "password": "scrypt:32768:8:1$7zwfTYnXWHMwO4NT$2562201c6a2f14553fdb50033e6e8365088eacd9ed40246aa6bebd36022ceb11e4a6a21b4db28026db2b2447ab40a172cb1ed472c8cf22d50adeafe8904198e1",
+        "balance": 10900.0,
+        "transactions": [
+            {
+                "type": "deposit",
+                "amount": 10000.0,
+                "to": "53351908",
+                "from": null
+            },
+            {
+                "type": "transfer_out",
+                "amount": -100.0,
+                "to": "00000001",
+                "from": "53351908"
+            },
+            {
+                "type": "transfer_in",
+                "amount": 1000.0,
+                "to": "53351908",
+                "from": "00000001"
+            }
+        ]
+    },
+    "85722273": {
+        "name": "Mthura",
+        "surname": "Magidi",
+        "username": "Mthura",
+        "phone": "0987654321",
+        "id_number": "0987654321098",
+        "password": "scrypt:32768:8:1$53IO6SEMyv3yuQpM$ea52eaae36985f8d3ec860fd9c8bfa104d0a1000c856fece72bc8a1f11cbbb77540c06c3b096f593f6994cce664bb81a3d401b8b07afe2bf8ac7df40686097f1",
+        "balance": 0,
+        "transactions": []
+    }
+}
