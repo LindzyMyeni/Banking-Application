@@ -4,6 +4,16 @@
 
 {% block content %}
     <h2>Deposit Money</h2>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <form action="{{ url_for('deposit') }}" method="POST">
         <div>
             <label for="amount">Amount:</label>
@@ -11,4 +21,15 @@
         </div>
         <button type="submit" class="btn">Deposit</button>
     </form>
+
+    <style>
+        .flash-message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+    </style>
+
 {% endblock %}

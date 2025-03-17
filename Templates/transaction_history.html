@@ -3,25 +3,107 @@
 {% block title %}Transaction History{% endblock %}
 
 {% block content %}
+    <style>
+        /* Transaction Table Styling */
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .transaction-table {
+            width: 90%;
+            max-width: 900px;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.2); /* Transparent effect */
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .transaction-table th,
+        .transaction-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .transaction-table th {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+        }
+
+        .transaction-table tr:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Positive & Negative Amounts */
+        .positive {
+            color: #4CAF50; /* Green for deposits */
+            font-weight: bold;
+        }
+
+        .negative {
+            color: #E53935; /* Red for withdrawals */
+            font-weight: bold;
+        }
+
+        /* Back to Dashboard Button */
+        .dashboard-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #004d33; /* Dark green */
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        .dashboard-button:hover {
+            background: #003322; /* Slightly darker green */
+        }
+    </style>
+
     <h2>Transaction History</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Type</th>
-                <th>Amount</th>
-                <th>Recipient/Sender</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for transaction in transactions %}
-            <tr>
-                <td>{{ transaction.type }}</td>
-                <td>${{ transaction.amount }}</td>
-                <td>{{ transaction.to or transaction.from }}</td>
-                <td>{{ transaction.date }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
+    {% if transactions %}
+        <div class="table-container">
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>To</th>
+                        <th>From</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                        <tr>
+                            <td>{{ transaction.type }}</td>
+                            <td>
+                                {% if transaction.amount.startswith("-R") %}
+                                    <span class="negative">{{ transaction.amount }}</span>
+                                {% else %}
+                                    <span class="positive">{{ transaction.amount }}</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ transaction.to if transaction.to else '_' }}</td>
+                            <td>{{ transaction.from if transaction.from else '_' }}</td>
+                            <td>{{ transaction.date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>No transactions found.</p>
+    {% endif %}
+
+    <a href="{{ url_for('dashboard') }}" class="dashboard-button">Back to Dashboard</a>
 {% endblock %}

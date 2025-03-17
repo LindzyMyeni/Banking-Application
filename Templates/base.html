@@ -15,7 +15,7 @@
 
         body {
             background-image: url("https://www.cleanertimes.com/wp-content/uploads/2024/04/iStock-1397011551.jpg");
-            background-size: cover; /* Ensures background image covers the entire page */
+            background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: #333;
@@ -24,7 +24,7 @@
 
         /* Navbar Styles */
         .navbar {
-            background-color: #01352c; /* fourth-color */
+            background-color: #01352c;
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
@@ -58,8 +58,41 @@
         }
 
         .navbar nav ul li a:hover {
-            background-color: #3a4c64; /* Slightly lighter blue on hover */
+            background-color: #3a4c64;
             border-radius: 5px;
+        }
+
+        /* Flash Messages */
+        .flash-messages {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        .flash-message {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .flash-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .flash-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .flash-message.info {
+            background-color: #cce5ff;
+            color: #004085;
+            border: 1px solid #b8daff;
         }
 
         /* Main Content Styling */
@@ -77,7 +110,7 @@
             font-size: 2rem;
             margin-bottom: 20px;
             font-weight: bold;
-            color: #2d3e50; /* Dark blue for headings */
+            color: #2d3e50;
         }
 
         p {
@@ -87,10 +120,10 @@
 
         /* Form Styling */
         form {
-            background-color: rgba(255, 255, 255, 0.6); /* White background with 80% opacity */
+            background-color: rgba(255, 255, 255, 0.6);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for contrast */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin-top: 20px;
         }
 
@@ -111,11 +144,11 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-top: 5px;
-            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent input fields */
+            background-color: rgba(255, 255, 255, 0.7);
         }
 
         form button {
-            background-color: #01352c; /* fourth-color */
+            background-color: #01352c;
             color: white;
             padding: 10px 20px;
             font-size: 1.1rem;
@@ -126,34 +159,12 @@
         }
 
         form button:hover {
-            background-color: #61b390; /* third-color */
-        }
-
-        /* Actions Button */
-        .actions {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .actions .btn {
-            background-color: #01352c; /* fourth-color */
-            color: white;
-            padding: 10px 20px;
-            font-size: 1rem;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .actions .btn:hover {
-            background-color: #61b390; /* third-color */
+            background-color: #61b390;
         }
 
         /* Footer Styles */
         footer {
-            background-color: #01352c; /* fourth-color */
+            background-color: #01352c;
             color: #ffffff;
             text-align: center;
             padding: 10px 0;
@@ -194,7 +205,7 @@
 <body>
     <header>
         <div class="navbar">
-            <h1>Banking App</h1>
+            <h1>Wealth Bank</h1>
             <nav>
                 <ul>
                     <li><a href="{{ url_for('homepage') }}">Home</a></li>
@@ -205,13 +216,26 @@
             </nav>
         </div>
     </header>
+
     <main>
+        <!-- Flash Messages -->
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
         <div class="container">
             {% block content %}{% endblock %}
         </div>
     </main>
+
     <footer>
-        <p>&copy; 2024 Banking App. All Rights Reserved.</p>
+        <p>&copy; 2024 Wealth Bank (Banking App). All Rights Reserved.</p>
     </footer>
 </body>
 </html>

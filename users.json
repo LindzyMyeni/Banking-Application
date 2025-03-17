@@ -155,5 +155,90 @@
         "password": "scrypt:32768:8:1$53IO6SEMyv3yuQpM$ea52eaae36985f8d3ec860fd9c8bfa104d0a1000c856fece72bc8a1f11cbbb77540c06c3b096f593f6994cce664bb81a3d401b8b07afe2bf8ac7df40686097f1",
         "balance": 0,
         "transactions": []
+    },
+    "33393079": {
+        "name": "Lindokuhle",
+        "surname": "Biyela",
+        "username": "Lindzy",
+        "phone": "0720000000",
+        "id_number": "1234567891234",
+        "password": "scrypt:32768:8:1$V9Br1Gx1mwi7FZsd$9f36041e6db8fe5e4ddb4dacd80ef0eddd8eb0aeeef45b709b90e83b579f15463035d46a6b2d06d30047a2fd1574a142126318831d1f20a0ce7fa414b25ce455",
+        "balance": 8750.0,
+        "transactions": [
+            {
+                "type": "Deposit",
+                "amount": "R1000.00",
+                "to": "33393079",
+                "from": null,
+                "date": "2025-03-14 14:14:53"
+            },
+            {
+                "type": "Withdrawal",
+                "amount": "-R200.00",
+                "to": null,
+                "from": "33393079",
+                "date": "2025-03-14 14:15:02"
+            },
+            {
+                "type": "Transfer Out",
+                "amount": "-R200.00",
+                "to": "53344831",
+                "from": "33393079",
+                "date": "2025-03-14 14:46:53"
+            },
+            {
+                "type": "Deposit",
+                "amount": "R8000.00",
+                "to": "33393079",
+                "from": null,
+                "date": "2025-03-17 15:34:12"
+            },
+            {
+                "type": "Deposit",
+                "amount": "R100.00",
+                "to": "33393079",
+                "from": null,
+                "date": "2025-03-17 15:47:34"
+            },
+            {
+                "type": "Deposit",
+                "amount": "R50.00",
+                "to": "33393079",
+                "from": null,
+                "date": "2025-03-17 15:47:46"
+            }
+        ]
+    },
+    "53344831": {
+        "name": "Phaswane",
+        "surname": "Ramascones",
+        "username": "Phaswi",
+        "phone": "0720000001",
+        "id_number": "1234567891232",
+        "password": "scrypt:32768:8:1$Zv5OJAiM1XLXxmeL$d5c29795a64e77d591326c665b8f48003846a9b97d03267a7c1b03b5ffe7f6dd43c02717971d60a89f132c19f68358f1da923af39f32b8a82ee6872c5f1da80b",
+        "balance": 950200.0,
+        "transactions": [
+            {
+                "type": "Deposit",
+                "amount": "R1000000.00",
+                "to": "53344831",
+                "from": null,
+                "date": "2025-03-14 14:45:01"
+            },
+            {
+                "type": "Withdrawal",
+                "amount": "-R50000.00",
+                "to": null,
+                "from": "53344831",
+                "date": "2025-03-14 14:45:05"
+            },
+            {
+                "type": "Transfer In",
+                "amount": "R200.00",
+                "to": "53344831",
+                "from": "33393079",
+                "date": "2025-03-14 14:46:53"
+            }
+        ]
     }
 }
